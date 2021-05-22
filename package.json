@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "start:dev": "BROWSER=chromium react-scripts start",
-    "start": "BROWSER=chromium react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
