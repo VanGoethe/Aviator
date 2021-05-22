@@ -97,7 +97,7 @@ export const Booking = (props: Props) => {
         </div>
         <div className="col">
           <label className="form-label">
-            Promo code{" "}
+            Promo code
             <span
               data-bs-toggle="tooltip"
               data-bs-placement="bottom"
