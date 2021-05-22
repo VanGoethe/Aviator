@@ -609,3 +609,7 @@ label.label-focus {
     background-color: white !important;
     width: 300px !important;
 };
+
+.card{
+  background-color: #f8f9fa!important
+}

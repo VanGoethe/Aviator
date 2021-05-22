@@ -4,9 +4,7 @@ import { Link } from "react-router-dom";
 const Header = () => (
   <nav className="navbar navbar-expand-lg navbar-light bg-light">
     <div className="container">
-      <Link className="navbar-brand" to="/">
-        Inashaza FBS
-      </Link>
+      <span className="navbar-brand">Inashaza FBS</span>
       <button
         className="navbar-toggler"
         type="button"
