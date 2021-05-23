@@ -34,7 +34,7 @@ export const Booking = (props: Props) => {
         </li>
       </ul>
       <div className="row pt-4">
-        <div className="col">
+        <div className="col col-lg-4 col-md-6 col-sm-12 ">
           <label className="form-label">Derpature airport</label>
           <input
             className="form-control"
@@ -50,7 +50,7 @@ export const Booking = (props: Props) => {
             <option value="Chicago"></option>
           </datalist>
         </div>
-        <div className="col">
+        <div className="col col-lg-4 col-md-6 col-sm-12 ">
           <label className="form-label">Arrival airport</label>
           <input
             className="form-control"
@@ -66,7 +66,7 @@ export const Booking = (props: Props) => {
             <option value="Chicago"></option>
           </datalist>
         </div>
-        <div className="col">
+        <div className="col col-lg-4 col-md-6 col-sm-12 ">
           <label className="form-label">Derpature date</label>
           <DatePicker
             selected={startDate}
@@ -75,7 +75,7 @@ export const Booking = (props: Props) => {
         </div>
       </div>
       <div className="row pt-4">
-        <div className="col">
+        <div className="col col-lg-4 col-md-6 col-sm-12 ">
           <label className="form-label">Derpature airport</label>
           <div className="input-group mb-3">
             <input type="number" min="0" className="form-control" />
@@ -87,7 +87,7 @@ export const Booking = (props: Props) => {
             </select>
           </div>
         </div>
-        <div className="col">
+        <div className="col col-lg-4 col-md-6 col-sm-12 ">
           <label className="form-label">Classes</label>
           <select className="form-select" id="inputGroupSelect02">
             <option selected>All classes</option>
@@ -95,7 +95,7 @@ export const Booking = (props: Props) => {
             <option value="2">Economic class</option>
           </select>
         </div>
-        <div className="col">
+        <div className="col col-lg-4 col-md-6 col-sm-12 ">
           <label className="form-label">
             Promo code
             <span
