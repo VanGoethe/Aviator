@@ -34,7 +34,7 @@ export const Booking = (props: Props) => {
         </li>
       </ul>
       <div className="row pt-4">
-        <div className="col col-lg-4 col-md-6 col-sm-12 ">
+        <div className="col col-lg-4 col-md-6 col-sm-12">
           <label className="form-label">Derpature airport</label>
           <input
             className="form-control"
@@ -50,7 +50,7 @@ export const Booking = (props: Props) => {
             <option value="Chicago"></option>
           </datalist>
         </div>
-        <div className="col col-lg-4 col-md-6 col-sm-12 ">
+        <div className="col col-lg-4 col-md-6 col-sm-12">
           <label className="form-label">Arrival airport</label>
           <input
             className="form-control"

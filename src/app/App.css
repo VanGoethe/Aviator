@@ -613,3 +613,47 @@ label.label-focus {
 .card{
   background-color: #f8f9fa!important
 }
+
+.auth-layout{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+  overflow-y: auto;
+}
+
+@media only screen and (max-width: 766px){ 
+  .auth-layout{
+    height: 100vh;
+  }
+}
+
+.login-layout{
+  width: 50%;
+}
+
+@media only screen and (max-width: 1024px){ 
+  .login-layout{
+    width: 70%;
+  }
+}
+@media only screen and (max-width: 766px){ 
+  .login-layout{
+    width: 100%;
+  }
+}
+
+.signup-layout{
+  width: 80%;
+}
+
+/* @media only screen and (max-width: 1024px){ 
+  .signup-layout{
+    width: 70%;
+  }
+} */
+@media only screen and (max-width: 766px){ 
+  .signup-layout{
+    width: 100%;
+  }
+}

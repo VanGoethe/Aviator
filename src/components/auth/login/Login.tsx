@@ -4,15 +4,8 @@ interface Props {}
 
 export const Login = (props: Props) => {
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "80vh",
-      }}
-    >
-      <div className="card" style={{ width: "50%" }}>
+    <div className="auth-layout">
+      <div className="card login-layout">
         <div style={{ padding: "40px" }}>
           <form>
             <h1 className="header-title">Login</h1>

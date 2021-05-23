@@ -1,11 +1,11 @@
 import React from "react";
-import "./App.css";
 import Header from "components/header/Header";
 import { Switch, Router } from "react-router-dom";
 import { getRoutes } from "routing";
 import { StoreProvider } from "easy-peasy";
 import { store } from "state";
 import { history } from "utils";
+import "./App.css";
 
 export const App: React.FC = () => {
   const routes = getRoutes();

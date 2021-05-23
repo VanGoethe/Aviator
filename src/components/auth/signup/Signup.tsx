@@ -4,15 +4,8 @@ interface Props {}
 
 export const Signup = (props: Props) => {
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "80vh",
-      }}
-    >
-      <div className="card" style={{ width: "80%" }}>
+    <div className="auth-layout">
+      <div className="card signup-layout">
         <div style={{ padding: "40px" }}>
           <form>
             <h1 className="header-title">Signup</h1>
