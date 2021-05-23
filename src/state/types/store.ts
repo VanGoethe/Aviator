@@ -1,5 +1,5 @@
-// import { LoginModel } from 'state/models/login.model';
+import { AuthModel } from "state/models/auth";
 
 export interface Store {
-  // auth: typeof LoginModel;
+  auth: typeof AuthModel;
 }

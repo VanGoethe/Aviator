@@ -1,5 +1,5 @@
-// import { LoginModel } from './login.model';
+import { AuthModel } from "./auth";
 
 export let models = {
-  // auth: LoginModel,
+  auth: AuthModel,
 };

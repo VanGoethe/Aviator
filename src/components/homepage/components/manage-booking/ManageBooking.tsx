@@ -20,7 +20,6 @@ export const ManageBooking = (props: Props) => {
               <input
                 type="text"
                 className="form-control"
-                id="inlineFormInputGroup"
                 placeholder="Ticket Number OR Booking Reference*"
               />
             </div>
@@ -30,7 +29,6 @@ export const ManageBooking = (props: Props) => {
             <input
               type="text"
               className="form-control mb-2"
-              id="inlineFormInput"
               placeholder="Jane Doe"
             />
           </div>

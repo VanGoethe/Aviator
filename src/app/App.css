@@ -644,7 +644,7 @@ label.label-focus {
 }
 
 .signup-layout{
-  width: 80%;
+  width: 100%;
 }
 
 /* @media only screen and (max-width: 1024px){ 
@@ -656,4 +656,13 @@ label.label-focus {
   .signup-layout{
     width: 100%;
   }
+}
+
+.loader {
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }

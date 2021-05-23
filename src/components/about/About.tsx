@@ -101,6 +101,7 @@ export const About = (props: Props) => {
                 {/* <h2>How can i contact you?</h2>
                     <p>You can contact me at <a href="mailto:efekaptan@gmail.com">efekaptan[at]gmail.com</a> </p> */}
               </div>
+              <button>clik</button>
             </div>
           </div>
         </div>

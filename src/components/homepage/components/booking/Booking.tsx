@@ -39,7 +39,6 @@ export const Booking = (props: Props) => {
           <input
             className="form-control"
             list="datalistOptions"
-            id="exampleDataList"
             placeholder="Type to search..."
           />
           <datalist id="datalistOptions">
@@ -55,7 +54,6 @@ export const Booking = (props: Props) => {
           <input
             className="form-control"
             list="datalistOptions"
-            id="exampleDataList"
             placeholder="Type to search..."
           />
           <datalist id="datalistOptions">
@@ -79,7 +77,7 @@ export const Booking = (props: Props) => {
           <label className="form-label">Derpature airport</label>
           <div className="input-group mb-3">
             <input type="number" min="0" className="form-control" />
-            <select className="form-select" id="inputGroupSelect02">
+            <select className="form-select">
               <option selected value="1">
                 Adults (12+ years)
               </option>
@@ -89,7 +87,7 @@ export const Booking = (props: Props) => {
         </div>
         <div className="col col-lg-4 col-md-6 col-sm-12 ">
           <label className="form-label">Classes</label>
-          <select className="form-select" id="inputGroupSelect02">
+          <select className="form-select">
             <option selected>All classes</option>
             <option value="1">Business class</option>
             <option value="2">Economic class</option>
