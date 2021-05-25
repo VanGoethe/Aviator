@@ -5,18 +5,19 @@ import { useStoreActions } from "hooks";
 
 const Header = () => {
   const { logout } = useStoreActions((action) => action.auth);
-  const token = storage.get("jwtToken");
-  const user = storage.get("currentUser");
+
   const [connected, setConnected] = useState(false);
   const [connectedUser, setConnectedUser] = useState({} as any);
   useEffect(() => {
+    const token = storage.get("jwtToken");
+    const user = storage.get("currentUser");
     if (token) {
       setConnected(true);
     }
     if (user) {
       setConnectedUser(user);
     }
-  }, [token, user]);
+  }, []);
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container">

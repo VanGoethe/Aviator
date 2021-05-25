@@ -5,6 +5,7 @@ import { getRoutes } from "routing";
 import { StoreProvider } from "easy-peasy";
 import { store } from "state";
 import { history } from "utils";
+import "react-datepicker/dist/react-datepicker.css";
 import "./App.css";
 
 export const App: React.FC = () => {

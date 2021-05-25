@@ -2,8 +2,8 @@ import React from "react";
 import ReactDom from "react-dom";
 
 import * as serviceWorker from "./serviceWorker";
+
 import { App } from "app";
-import "react-datepicker/dist/react-datepicker.css";
 
 const RootComponent = () => (
   <React.StrictMode>

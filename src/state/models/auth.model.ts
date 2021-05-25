@@ -1,6 +1,6 @@
-import { redirectTo } from "./../../utils/route";
+import { redirectTo } from "../../utils/route";
 import { history } from "utils";
-import { SignupPayload, LoginPayload } from "./../types";
+import { SignupPayload, LoginPayload } from "../types";
 import { thunk, action } from "easy-peasy";
 import { client, routes, setAuthToken } from "config";
 import jwt_decode from "jwt-decode";
