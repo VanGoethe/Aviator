@@ -21,7 +21,7 @@ const Header = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container">
-        <span className="navbar-brand">Inashaza FBS</span>
+        <span className="navbar-brand">FlighHigh Airlines</span>
         <button
           className="navbar-toggler"
           type="button"

@@ -71,37 +71,23 @@ export const About = (props: Props) => {
                 <h2>What is this project about?</h2>
                 <p>
                   This project is a real-world demonstration of web tools such
-                  as <br /> React, Redux, Node.js and a couple more. Please
-                  check{" "}
-                  <a
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href="https://github.com/VanGoethe/Aviator"
-                  >
-                    Github
-                  </a>{" "}
-                  page for details.
+                  as <br /> React, Redux, Node.js and a couple more.
                 </p>
-                {/* <h2>What does "Galatia" mean?</h2>
-                    <p>Galatia is an ancient civilization which was located in the central part of Turkey. You can get more information by visiting <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Galatia">Wikipedia</a> page.</p> */}
                 <h2>Where does this data come from?</h2>
                 <p>
-                  Flight search results come from{" "}
+                  Flight search results come from a free subscription from{" "}
                   <a
                     target="_blank"
                     rel="noopener noreferrer"
-                    href="https://developers.google.com/qpx-express/"
+                    href="https://aviationstack.com"
                   >
                     {" "}
-                    a free Flight Information Api
+                    Flight Information Api
                   </a>
                   . Its only provides access to a few requests for testing. You
                   have to subscribe a fee to get full access{" "}
                 </p>
-                {/* <h2>How can i contact you?</h2>
-                    <p>You can contact me at <a href="mailto:efekaptan@gmail.com">efekaptan[at]gmail.com</a> </p> */}
               </div>
-              <button>clik</button>
             </div>
           </div>
         </div>

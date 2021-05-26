@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import DatePicker from "react-datepicker";
 import { DepartureAutoComplete } from "./components";
 import { ArrivalAutoComplete } from "./components/ArrivalAutocomplete";
@@ -8,8 +8,12 @@ import moment from "moment";
 interface Props {}
 
 export const Booking = (props: Props) => {
-  const { searchFlights } = useStoreActions((action) => action.booking);
-  const { loadingFlights, flights } = useStoreState((state) => state.booking);
+  const { searchFlights, Book, clearBook } = useStoreActions(
+    (action) => action.booking
+  );
+  const { loadingFlights, flights, loadingBooking, booked } = useStoreState(
+    (state) => state.booking
+  );
 
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
@@ -19,8 +23,20 @@ export const Booking = (props: Props) => {
   const [Adult, setAdult] = useState("");
   const [classe, setClasse] = useState("");
 
-  const onBook = () => {
-    const data = {};
+  const [flightList, setflightList] = useState({} as any);
+  const [hasBooked, setHasBooked] = useState({} as any);
+
+  const onBook = (flight: any) => {
+    const data = {
+      flight,
+      departureDate: startDate,
+      arrivalDate: endDate,
+      passengers: passenger,
+      isAdult: Adult === "1" ? true : false,
+      class: classe,
+    };
+    console.log(data, "datastosend");
+    Book(data as any);
   };
 
   const onSearch = () => {
@@ -28,7 +44,34 @@ export const Booking = (props: Props) => {
       dep_iata: departure,
       arr_iata: arrival,
     };
+    setHasBooked({});
     searchFlights(data as any);
+  };
+
+  useEffect(() => {
+    if (booked && Object.keys(booked).length > 0) {
+      setHasBooked(booked);
+    }
+  }, [booked]);
+
+  useEffect(() => {
+    if (flights && Object.keys(flights).length > 0) {
+      setflightList(flights);
+    }
+  }, [flights]);
+
+  const clear = () => {
+    setDeparture("");
+    setArrival("");
+    setClasse("");
+    setPassenger("");
+    setAdult("");
+    setStartDate("" as any);
+    setEndDate("" as any);
+
+    setHasBooked({} as any);
+    setflightList({} as any);
+    clearBook();
   };
 
   return (
@@ -157,42 +200,57 @@ export const Booking = (props: Props) => {
         >
           <span>loading...</span>
         </div>
-      ) : flights && Object.keys(flights).length > 0 ? (
+      ) : flights &&
+        Object.keys(flightList).length > 0 &&
+        Object.keys(hasBooked).length <= 0 ? (
         <div className="table-component mt-5">
           <div className="card text-center">
             <div className="card-header">Available flights</div>
             <div className="card-body">
               <div className="row">
                 <div className="col">
-                  <h5 className="card-title">
+                  <h5
+                    className="card-title"
+                    style={{ display: "grid", justifyContent: "center" }}
+                  >
+                    <div
+                      style={{
+                        padding: "3px 5px",
+                        background: "lightgrey",
+                        borderRadius: "50px",
+                        marginBottom: "15px",
+                      }}
+                    >
+                      Departure
+                    </div>
                     <div>
                       <i
                         style={{ color: "#727272" }}
                         className="fas fa-fighter-jet"
                       ></i>
                     </div>
-                    <div>{flights?.departure?.airport}</div>
+                    <div>{flightList?.departure?.airport}</div>
                   </h5>
-                  <p
+                  <div
                     style={{ color: "rgb(30, 30, 30)", fontSize: "14px" }}
                     className="card-text"
                   >
-                    <div>IATA: {flights?.departure?.iata}</div>
+                    <div>IATA: {flightList?.departure?.iata}</div>
                     <br />
-                    <div>Time zone: {flights?.departure?.timezone}</div>
+                    <div>Time zone: {flightList?.departure?.timezone}</div>
                     <div>
                       Scheduled:{" "}
-                      {moment(flights?.departure?.scheduled).format(
+                      {moment(flightList?.departure?.scheduled).format(
                         "YYYY-MM-DD"
                       )}
                     </div>
                     <div>
                       Estimated:{" "}
-                      {moment(flights?.departure?.estimated).format(
+                      {moment(flightList?.departure?.estimated).format(
                         "YYYY-MM-DD"
                       )}
                     </div>
-                  </p>
+                  </div>
                 </div>
                 <div
                   className="col"
@@ -202,43 +260,106 @@ export const Booking = (props: Props) => {
                     alignItems: "center",
                   }}
                 >
-                  <i
-                    className="fas fa-arrow-circle-right"
-                    style={{ fontSize: "30px" }}
-                  ></i>
+                  <div>
+                    <div>
+                      <i
+                        className="fas fa-arrow-circle-right"
+                        style={{ fontSize: "30px", color: "grey" }}
+                      ></i>
+                    </div>
+                    <div>Airline: {flightList?.airline?.name}</div>
+                  </div>
                 </div>
                 <div className="col">
-                  <h5 className="card-title">
+                  <h5
+                    className="card-title"
+                    style={{ display: "grid", justifyContent: "center" }}
+                  >
+                    <div
+                      style={{
+                        padding: "3px 5px",
+                        background: "lightgrey",
+                        borderRadius: "50px",
+                        marginBottom: "15px",
+                      }}
+                    >
+                      Arrival
+                    </div>
                     <div>
                       <i
                         style={{ color: "#727272" }}
                         className="fas fa-fighter-jet"
                       ></i>
                     </div>
-                    <div> {flights?.arrival?.airport}</div>
+                    <div> {flightList?.arrival?.airport}</div>
                   </h5>
-                  <p
+                  <div
                     style={{ color: "rgb(30, 30, 30)", fontSize: "14px" }}
                     className="card-text"
                   >
-                    <div>IATA: {flights?.arrival?.iata}</div>
+                    <div>IATA: {flightList?.arrival?.iata}</div>
                     <br />
-                    <div>Time zone: {flights?.arrival?.timezone}</div>
+                    <div>Time zone: {flightList?.arrival?.timezone}</div>
                     <div>
                       Scheduled:{" "}
-                      {moment(flights?.arrival?.scheduled).format("YYYY-MM-DD")}
+                      {moment(flightList?.arrival?.scheduled).format(
+                        "YYYY-MM-DD"
+                      )}
                     </div>
                     <div>
                       Estimated:{" "}
-                      {moment(flights?.arrival?.estimated).format("YYYY-MM-DD")}
+                      {moment(flightList?.arrival?.estimated).format(
+                        "YYYY-MM-DD"
+                      )}
                     </div>
-                  </p>
+                  </div>
                 </div>
               </div>
             </div>
             <div className="card-footer text-muted">
-              <button className="btn btn-primary">Book</button>
+              <button
+                onClick={() => onBook(flights)}
+                className="btn btn-primary"
+                disabled={loadingBooking}
+              >
+                {loadingBooking ? (
+                  <i className="fa fa-spinner loader"></i>
+                ) : null}
+                Book
+              </button>
             </div>
+          </div>
+        </div>
+      ) : null}
+      {hasBooked && Object.keys(hasBooked).length > 0 ? (
+        <div className="card text-center mt-4">
+          <div className="card-header">Success</div>
+          <div className="card-body">
+            <h5 className="card-title">Booked Successfully</h5>
+            <div className="card-text">
+              Your flight has been booked Successfully
+              <br />
+              Find your book details in manage booking by this <br />
+              id reference
+              <br />
+              <div
+                style={{
+                  fontSize: "20px",
+                  margin: "15px 20px",
+                  fontWeight: 700,
+                  color: "#e74c3c",
+                }}
+              >
+                {hasBooked?.bookingReference}
+              </div>
+              <div style={{ fontSize: "13px", margin: "15px 20px" }}>
+                MAKE SURE YOU KEEP IT IN MIND, WRITE IT DOWN SOMEWHERE OR EVEN
+                BETTER, PRINT THIS PAGE BEFORE CLOSING IT
+              </div>
+            </div>
+            <button onClick={clear} className="btn btn-primary">
+              ok
+            </button>
           </div>
         </div>
       ) : null}
