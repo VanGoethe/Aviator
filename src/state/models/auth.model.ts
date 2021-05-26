@@ -41,6 +41,7 @@ export const AuthModel: Auth = {
 
       if (response.data) {
         history.push(routes.login);
+        actions.request(false as any);
       }
     } catch (error) {
       actions.request(false as any);
@@ -68,7 +69,7 @@ export const AuthModel: Auth = {
       await actions.success({ user: decoded, token: token } as any);
       actions.request(false as any);
       //   redirectTo(routes.homePage);
-      window.location.href = routes.homePage;
+      window.location.href = routes.booking;
     } catch (error) {
       actions.request(false as any);
       actions.failure(error.response ? error.response.data : null);

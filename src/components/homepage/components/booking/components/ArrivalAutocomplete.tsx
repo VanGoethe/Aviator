@@ -3,9 +3,10 @@ import { useStoreActions, useStoreState } from "hooks";
 
 interface Props {
   setArrivalIata: any;
+  arValue: any;
 }
 
-export const ArrivalAutoComplete = ({ setArrivalIata }: Props) => {
+export const ArrivalAutoComplete = ({ setArrivalIata, arValue }: Props) => {
   const { getCities } = useStoreActions((actions) => actions.booking);
   const { cities, loadingCities } = useStoreState((state) => state.booking);
 
@@ -24,6 +25,12 @@ export const ArrivalAutoComplete = ({ setArrivalIata }: Props) => {
     }
   }, [cities]);
 
+  useEffect(() => {
+    if (arValue) {
+      setArrival(arValue);
+    }
+  }, [arValue]);
+
   return (
     <>
       <label className="form-label">
@@ -41,6 +48,7 @@ export const ArrivalAutoComplete = ({ setArrivalIata }: Props) => {
           setArrival(el.target.value);
         }}
         width="100%"
+        value={arrival}
       />
       <datalist id="ArrivallistOptions">
         {cityData?.map((city: any, i: any) => (

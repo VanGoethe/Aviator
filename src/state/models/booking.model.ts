@@ -75,7 +75,6 @@ export const BookingModel: Booking = {
         `/flightsPrice/${payload.dep_iata}/${payload.arr_iata}`
       );
       if (response.data) {
-        console.log(response.data);
         actions.request({ type: "flights", status: false } as any);
         actions.success({ field: "flights", value: response.data } as any);
       }
@@ -112,7 +111,6 @@ export const BookingModel: Booking = {
       // );
       const response = await client().get(`/booking/${payload.ref}`);
       if (response.data) {
-        console.log(response.data);
         actions.request({ type: "books", status: false } as any);
         actions.success({ field: "books", value: response.data } as any);
       }
@@ -128,7 +126,6 @@ export const BookingModel: Booking = {
     try {
       const response = await client().get(`/bookingUser`);
       if (response.data) {
-        console.log(response.data);
         actions.request({ type: "books", status: false } as any);
         actions.success({ field: "books", value: response.data } as any);
       }
@@ -146,9 +143,7 @@ export const BookingModel: Booking = {
       const response = await client().delete(`/booking/${payload}`);
       if (response.data) {
         await actions.getBookings();
-        console.log(response.data);
         actions.request({ type: "books", status: false } as any);
-        actions.success({ field: "books", value: response.data } as any);
       }
     } catch (error) {
       actions.request({ type: "books", status: false } as any);
@@ -163,9 +158,7 @@ export const BookingModel: Booking = {
       const response = await client().put(`/booking/${payload}`);
       if (response.data) {
         await actions.getBookings();
-        console.log(response.data);
         actions.request({ type: "books", status: false } as any);
-        actions.success({ field: "books", value: response.data } as any);
       }
     } catch (error) {
       actions.request({ type: "books", status: false } as any);

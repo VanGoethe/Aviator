@@ -14,7 +14,10 @@ code {
     monospace;
 }
 
-body {background-color: #282c34;
+body {
+  background-image: url('../assets/images/fligh.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
   min-height: 93.5vh;
 }
 

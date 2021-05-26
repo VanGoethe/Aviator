@@ -45,6 +45,7 @@ export const Booking = (props: Props) => {
       arr_iata: arrival,
     };
     setHasBooked({});
+    setflightList({});
     searchFlights(data as any);
   };
 
@@ -58,7 +59,7 @@ export const Booking = (props: Props) => {
     if (flights && Object.keys(flights).length > 0) {
       setflightList(flights);
     }
-  }, [flights]);
+  }, [loadingFlights, flights]);
 
   const clear = () => {
     setDeparture("");
@@ -105,18 +106,20 @@ export const Booking = (props: Props) => {
       <div className="row pt-4">
         <div className="col col-12 col-sm-12 col-md-12 col-lg-4">
           <DepartureAutoComplete
+            depValue={departure}
             setDepartureIata={(val: string) => setDeparture(val)}
           />
         </div>
         <div className="col col-12 col-sm-12 col-md-12 col-lg-4">
           <ArrivalAutoComplete
+            arValue={arrival}
             setArrivalIata={(val: string) => setArrival(val)}
           />
         </div>
         <div className="col col-12 col-sm-12 col-md-12 col-lg-4">
           <div className="row">
             <div className="col-6">
-              <label className="form-label">Derpature date</label>
+              <label className="form-label">Departure date</label>
               <DatePicker
                 selected={startDate}
                 onChange={(date: any) => setStartDate(date)}
@@ -124,7 +127,7 @@ export const Booking = (props: Props) => {
               />
             </div>
             <div className="col-6">
-              <label className="form-label">Arrival date</label>
+              <label className="form-label">Return date</label>
               <DatePicker
                 selected={endDate}
                 onChange={(date: any) => setEndDate(date)}
@@ -262,12 +265,47 @@ export const Booking = (props: Props) => {
                 >
                   <div>
                     <div>
-                      <i
-                        className="fas fa-arrow-circle-right"
-                        style={{ fontSize: "30px", color: "grey" }}
-                      ></i>
+                      <div
+                        style={{
+                          fontSize: "14px",
+                          color: "rgb(30, 30, 30)",
+                        }}
+                      >
+                        Flight:{" "}
+                        <span
+                          style={{
+                            fontSize: "18px !important",
+                            color: "rgb(0,0,0)",
+                            fontWeight: 700,
+                          }}
+                        >
+                          {flightList?.flight?.number}
+                        </span>
+                      </div>
+                      <div>
+                        <i
+                          className="fas fa-arrow-circle-right"
+                          style={{ fontSize: "30px", color: "grey" }}
+                        ></i>
+                      </div>
+                      <div
+                        style={{
+                          fontSize: "14px",
+                          color: "rgb(30, 30, 30)",
+                        }}
+                      >
+                        Airline:
+                        <span
+                          style={{
+                            fontSize: "18px !important",
+                            color: "rgb(0,0,0)",
+                            fontWeight: 700,
+                          }}
+                        >
+                          {flightList?.airline?.name}
+                        </span>
+                      </div>
                     </div>
-                    <div>Airline: {flightList?.airline?.name}</div>
                   </div>
                 </div>
                 <div className="col">

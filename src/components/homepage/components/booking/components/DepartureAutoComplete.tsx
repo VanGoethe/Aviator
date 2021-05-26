@@ -3,9 +3,13 @@ import { useStoreActions, useStoreState } from "hooks";
 
 interface Props {
   setDepartureIata: any;
+  depValue: any;
 }
 
-export const DepartureAutoComplete = ({ setDepartureIata }: Props) => {
+export const DepartureAutoComplete = ({
+  setDepartureIata,
+  depValue,
+}: Props) => {
   const { getCities } = useStoreActions((actions) => actions.booking);
   const { cities, loadingCities } = useStoreState((state) => state.booking);
 
@@ -25,10 +29,16 @@ export const DepartureAutoComplete = ({ setDepartureIata }: Props) => {
     }
   }, [cities]);
 
+  useEffect(() => {
+    if (depValue) {
+      setDerpature(depValue);
+    }
+  }, [depValue]);
+
   return (
     <>
       <label className="form-label">
-        Derpature airport{" "}
+        Departure airport{" "}
         <span>
           {loadingCities ? <i className="fa fa-spinner loader"></i> : null}
         </span>
@@ -42,6 +52,7 @@ export const DepartureAutoComplete = ({ setDepartureIata }: Props) => {
           setDerpature(el.target.value);
         }}
         width="100%"
+        value={departure}
       />
       <datalist id="departurelistOptions">
         {cityData?.map((city: any, i: any) => (

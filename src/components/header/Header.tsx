@@ -38,8 +38,23 @@ const Header = () => {
             {connected ? (
               <>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/homepage">
-                    Home
+                  <Link className="nav-link" to="/booking">
+                    Booking
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/checkin">
+                    Checkin
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/manage-booking">
+                    Manage booking
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/flight-information">
+                    Flight information
                   </Link>
                 </li>
                 <li className="nav-item">

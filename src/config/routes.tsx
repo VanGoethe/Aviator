@@ -2,6 +2,9 @@ export const routes = {
   home: "/homepage",
   login: "/login",
   signup: "/signup",
-  homePage: "/homepage",
+  flight: "/flight-information",
+  booking: "/booking",
+  checkin: "/checkin",
+  manage: "/manage-booking",
   about: "/about",
 };
